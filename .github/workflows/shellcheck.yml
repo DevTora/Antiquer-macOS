@@ -1,0 +1,13 @@
+name: ShellCheck
+
+on: [push, pull_request]
+
+jobs:
+  shellcheck:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ShellCheck
+        run: brew install shellcheck
+      - name: Run ShellCheck
+        run: shellcheck --shell=bash Antiquer.sh Antiquer-zh-CN.sh
